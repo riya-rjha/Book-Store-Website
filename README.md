@@ -12,3 +12,4 @@ This specific book store project has been meticuloulsy constructed using a full-
 ### Important Information
 1. node -v : Gives the version of installed node.js
 2. "scripts" : "start" : "node index.js", "dev" : "nodemon index.js"
+3. mongoose documentation : https://mongoosejs.com/

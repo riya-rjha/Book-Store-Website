@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 
 const app = express();
 
-
 mongoose
     .connect(mongoDBURL)
     .then(()=>{
@@ -22,3 +21,22 @@ mongoose
 app.listen(PORT, ()=> {
     console.log(`App is listening to ${PORT}`);
 })
+
+//Postman API to get data
+app.post('/books', async(req, res)=> { 
+    try {
+        if(
+            !req.body.title || 
+            !req.body.author || 
+            !req.body.publishYear
+        )
+        {
+            return response.status(400).send({
+                message: 'Send all the required details'
+            })
+        }
+    } catch (error) {
+        console.log(`Error message : ${error.message}`);
+        res.status(500).send({message : error.message});
+    }
+});
