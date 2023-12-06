@@ -22,7 +22,7 @@ mongoose
     })
 
 app.listen(PORT, () => {
-    console.log(`App is listening to ${PORT}`);
+    console.log(`App successfully listening to ${PORT}`);
 })
 
 
@@ -54,10 +54,12 @@ app.post('/books', async (req, res) => {
 });
 
 //route to get all books from database
-app.get('/books', async(req, resp)=>{
+app.get('/books', async(req, res)=>{
     try {
-        const books = await Book.find()
+        const books = await Book.find({});
+        return res.status(201).json(books);
     } catch (error) {
-        
+        console.log(`Error message : ${error.message}`);    
+        return res.status(500).send({ message : error.message});
     }
 })
