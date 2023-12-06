@@ -26,7 +26,7 @@ app.listen(PORT, () => {
 })
 
 
-
+//Route to save a new book
 //Postman API to get data
 app.post('/books', async (req, res) => {
     try {
@@ -35,10 +35,10 @@ app.post('/books', async (req, res) => {
             !req.body.author ||
             !req.body.publishYear
         ) {
-            return response.status(400).send({
+            return res.status(400).send({
                 message: 'Send all the required details'
-            })
-        };
+            });
+        }
         const newBook = {
             title: req.body.title,
             author: req.body.author,
@@ -46,9 +46,18 @@ app.post('/books', async (req, res) => {
         };
         const book = await Book.create(newBook);
         return res.status(201).send(book);
-
+        //uses postman to create and send https requests
     } catch (error) {
         console.log(`Error message : ${error.message}`);
-        res.status(500).send({ message: error.message });
+        return res.status(500).send({ message: error.message });
     }
 });
+
+//route to get all books from database
+app.get('/books', async(req, resp)=>{
+    try {
+        const books = await Book.find()
+    } catch (error) {
+        
+    }
+})
