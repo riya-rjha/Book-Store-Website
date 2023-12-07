@@ -26,7 +26,7 @@ CORS is Cross-Origin Resource Sharing is a policy which checks at security level
 
 import cors from 'cors'
 
-<h1>Method 1 : </h1>
+<h1 style="{color: red}">Method 1 : </h1>
 app.use(cors());
 
 Method 2 :
