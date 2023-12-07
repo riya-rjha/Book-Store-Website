@@ -25,11 +25,12 @@ Firstly import express from the express package and then create a file to store 
 CORS is Cross-Origin Resource Sharing is a policy which checks at security level that whether another application is allowed to receive data from the other application or not. It keeps a check on which http requests are permitted and which are not. For this we use the cors package and perform the following commands : 
 
 import cors from 'cors'
+const app = express()
 
-<h1 style="{color: red}">Method 1 : </h1>
+#### Method 1 : 
 app.use(cors());
 
-Method 2 :
+#### Method 2 :
 app.use(cors({
     origin: '',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
