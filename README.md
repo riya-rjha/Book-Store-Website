@@ -13,3 +13,16 @@ This specific book store project has been meticuloulsy constructed using a full-
 1. node -v : Gives the version of installed node.js
 2. "scripts" : "start" : "node index.js", "dev" : "nodemon index.js"
 3. mongoose documentation : https://mongoosejs.com/
+
+### Details
+1. Using Routers
+
+Firstly import express from the express package and then create a file to store the functions for books, say, get, post, delete, update etc. Then at the place of app, import router from express and update router. In the index file, import the router file where in the routes are being exported. There, create a use parameter to handle the route being imported for the https request and router being exported from the route file.
+
+2. CORS Policy 
+
+CORS is Cross-Origin Resource Sharing is a policy which checks at security level that whether another application is allowed to receive data from the other application or not. For this we use the cors package.
+
+3. Middlewares 
+
+The app.method() consists of async(request, response) that awaits for a request parameter and sends commands such as find, findById, findByIdAndUpdate, findByIdAndDelete etc. This is termed as miidleware.
