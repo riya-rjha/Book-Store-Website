@@ -39,4 +39,11 @@ app.use(cors({
 
 3. Middlewares 
 
-The app.method() consists of async(request, response) that awaits for a request parameter and sends commands such as find, findById, findByIdAndUpdate, findByIdAndDelete etc. This is termed as miidleware.
+The app.method() consists of async(request, response) that awaits for a request parameter and sends commands such as find, findById, findByIdAndUpdate, findByIdAndDelete etc. This is termed as middleware.
+
+4. Installing TailWind CSS
+
+Adding tailwind.config.js file : 
+
+1. npm install -D tailwindcss
+2. npx tailwindcss init
