@@ -5,9 +5,12 @@ import BooksRouter from './Routes/bookRoutes.js'
 
 const app = express();
 
+//convert JSON data into text format
 app.use(express.json());
 
+//creating routes for books from routeBooks file
 app.use('/books', BooksRouter)
+
 
 mongoose
     .connect(mongoDBURL)
