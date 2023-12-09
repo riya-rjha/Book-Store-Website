@@ -37,7 +37,7 @@ const Home = () => {
           <Spinner />
         ) :
           (
-            <table className="w-full border-separate border-spacing-2">
+            <table className="w-full border-separate border-spacing-2 ">
               <thead>
                 <tr>
                   <th className="border-slate-600 border rounded-md">S.No</th>

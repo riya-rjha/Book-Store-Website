@@ -8,7 +8,7 @@ import BackButton from '../Components/BackButton.jsx'
 const ShowBook = () => {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const {id} = useParams(); //Returns an object of key/value pairs of the dynamic params from the current URL that were matched by the route path
+  const { id } = useParams(); //Returns an object of key/value pairs of the dynamic params from the current URL that were matched by the route path
 
   useEffect(() => {
     try {
@@ -35,8 +35,8 @@ const ShowBook = () => {
         )
         :
         (
-          <div className='m-8 border-emerald-250 border bg-purple-100 p-2'>
-            <div className="flex">
+          <div className='m-8 border-emerald-250 border bg-purple-100 p-2 w-fit'>
+            <div className="flex flex-col">
               <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>S. No : </span>
               <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{books._id}</span>
             </div>
@@ -60,7 +60,7 @@ const ShowBook = () => {
               <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>Last Updated Time : </span>
               <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{new Date(books.updatedAt).toString()}</span>
             </div>
-            
+
           </div>
         )}
     </div>
