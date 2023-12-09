@@ -9,6 +9,7 @@ I. Commands in terminal :
 2. npm i nodemon express mongoose mongodb cors
 3. npm run start
 4. npm i cors
+5. npm i axios react-icons
 
 ### Important Information
 1. node -v : Gives the version of installed node.js

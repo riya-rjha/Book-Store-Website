@@ -1,16 +1,18 @@
 import express from "express"
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from "mongoose";
+import Cors from 'cors'
 import BooksRouter from './Routes/bookRoutes.js'
 
 const app = express();
-
 //convert JSON data into text format
 app.use(express.json());
 
 //creating routes for books from routeBooks file
 app.use('/books', BooksRouter)
 
+//enabling cors for all IP Adresses
+app.use(Cors());
 
 mongoose
     .connect(mongoDBURL)
