@@ -28,7 +28,7 @@ const ShowBook = () => {
   return (
     <div>
       <BackButton />
-      <h1 className='text-red-950 m-8 text-2xl font-bold font-serif'>Showing book : </h1>
+      <h1 className='text-red-950 m-8 text-2xl font-bold '>Showing book : </h1>
       {isLoading ?
         (
           <Spinner />
@@ -37,28 +37,28 @@ const ShowBook = () => {
         (
           <div className='m-8 border-emerald-250 border bg-purple-100 p-2 w-fit'>
             <div className="flex flex-col">
-              <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>S. No : </span>
-              <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{books._id}</span>
+              <span className='text-1.8xl font-bold p-1.5  text-cyan-950'>S. No : </span>
+              <span className='p-1.5 text-pink-800 font-semibold  text-1.4xl'>{books._id}</span>
             </div>
             <div className="flex">
-              <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>Title : </span>
-              <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{books.title}</span>
+              <span className='text-1.8xl font-bold p-1.5  text-cyan-950'>Title : </span>
+              <span className='p-1.5 text-pink-800 font-semibold  text-1.4xl'>{books.title}</span>
             </div>
             <div className="flex">
-              <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>Author : </span>
-              <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{books.author}</span>
+              <span className='text-1.8xl font-bold p-1.5  text-cyan-950'>Author : </span>
+              <span className='p-1.5 text-pink-800 font-semibold  text-1.4xl'>{books.author}</span>
             </div>
             <div className="flex">
-              <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>Publish Year : </span>
-              <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{books.publishYear}</span>
+              <span className='text-1.8xl font-bold p-1.5  text-cyan-950'>Publish Year : </span>
+              <span className='p-1.5 text-pink-800 font-semibold  text-1.4xl'>{books.publishYear}</span>
             </div>
             <div className="flex">
-              <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>Creation Time : </span>
-              <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{new Date(books.createdAt).toString()}</span>
+              <span className='text-1.8xl font-bold p-1.5  text-cyan-950'>Creation Time : </span>
+              <span className='p-1.5 text-pink-800 font-semibold  text-1.4xl'>{new Date(books.createdAt).toString()}</span>
             </div>
             <div className="flex">
-              <span className='text-1.8xl font-bold p-1.5 font-serif text-cyan-950'>Last Updated Time : </span>
-              <span className='p-1.5 text-pink-800 font-semibold font-serif text-1.4xl'>{new Date(books.updatedAt).toString()}</span>
+              <span className='text-1.8xl font-bold p-1.5  text-cyan-950'>Last Updated Time : </span>
+              <span className='p-1.5 text-pink-800 font-semibold  text-1.4xl'>{new Date(books.updatedAt).toString()}</span>
             </div>
 
           </div>

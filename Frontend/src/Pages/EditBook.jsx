@@ -1,9 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Spinner from '../Components/Spinner.jsx'
 import BackButton from '../Components/BackButton.jsx'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useSnackbar } from 'notistack'
 
 const EditBook = () => {
 
@@ -12,7 +13,9 @@ const EditBook = () => {
   const [publishYear, setPublishYear] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const {id} = useParams();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -21,14 +24,16 @@ const EditBook = () => {
     setIsLoading(true);
     axios.
       get(`http://localhost:9999/books/${id}`)
-      .then((response)=>{
+      .then((response) => {
         setTitle(response.data.title);
         setAuthor(response.data.author);
         setPublishYear(response.data.publishYear);
+        enqueueSnackbar('Book edited successfully!', { variant: 'success' });
         setIsLoading(false);
       })
-      .catch((err)=>{
+      .catch((err) => {
         console.log(err.message);
+        enqueueSnackbar('Opps! An error occurred!', { variant: 'error' });
         setIsLoading(false);
       })
   }, []);
@@ -54,36 +59,36 @@ const EditBook = () => {
   return (
     <div >
       <BackButton />
-      <h1 className='text-red-950 m-8 text-2xl font-bold font-serif'>Create book : </h1>
+      <h1 className='text-red-950 m-8 text-2xl font-bold '>Create book : </h1>
       {isLoading ? (
         <Spinner />
       ) : (
         <div className="border border-green-500 flex justify-center flex-col mx-40 mt-10 p-15 rounded-lg  ">
           <div className="m-2 flex flex-col">
-            <label className='font-serif text-green-800 text-2xl font-semibold'>Title : </label>
+            <label className=' text-green-800 text-2xl font-semibold'>Title : </label>
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className='border border-green-900 outline-none p-1.5 rounded-md my-2 font-serif'
+              className='border border-green-900 outline-none p-1.5 rounded-md my-2 '
             />
           </div>
           <div className="m-2 flex flex-col">
-            <label className='font-serif text-green-800 text-2xl font-semibold'>Author : </label>
+            <label className=' text-green-800 text-2xl font-semibold'>Author : </label>
             <input
               type="text"
               value={author}
               onChange={(e) => setAuthor(e.target.value)}
-              className='border border-green-900 outline-none p-1.5 rounded-md my-2 font-serif'
+              className='border border-green-900 outline-none p-1.5 rounded-md my-2 '
             />
           </div>
           <div className="m-2 flex flex-col">
-            <label className='font-serif text-green-800 text-2xl font-semibold'>Publish Year : </label>
+            <label className=' text-green-800 text-2xl font-semibold'>Publish Year : </label>
             <input
               type="text"
               value={publishYear}
               onChange={(e) => setPublishYear(e.target.value)}
-              className='border border-green-900 outline-none p-1.5 rounded-md my-2 font-serif'
+              className='border border-green-900 outline-none p-1.5 rounded-md my-2 '
             />
           </div>
           <button
