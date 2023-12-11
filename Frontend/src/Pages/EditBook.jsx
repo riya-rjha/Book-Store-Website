@@ -23,7 +23,7 @@ const EditBook = () => {
   useEffect(() => {
     setIsLoading(true);
     axios.
-      get(`http://localhost:9999/books/${id}`)
+      get(`https://book-store-snzt.onrender.com/books/${id}`)
       .then((response) => {
         setTitle(response.data.title);
         setAuthor(response.data.author);
@@ -45,7 +45,7 @@ const EditBook = () => {
     }
     setIsLoading(true);
     axios
-      .put(`http://localhost:9999/books/${id}`, data)
+      .put(`https://book-store-snzt.onrender.com/books/${id}`, data)
       .then(() => {
         setIsLoading(false);
         navigate('/');

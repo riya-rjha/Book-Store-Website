@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from '../Components/Spinner.jsx'
 import BackButton from '../Components/BackButton.jsx';
-import {useSnackbar} from 'notistack'
+import { useSnackbar } from 'notistack'
 
 const CreateBook = () => {
 
@@ -12,7 +12,7 @@ const CreateBook = () => {
   const [publishYear, setPublishYear] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const {enqueueSnackbar} = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
   const navigate = useNavigate();
 
@@ -22,15 +22,15 @@ const CreateBook = () => {
     }
     setIsLoading(true);
     axios
-      .post('http://localhost:9999/books', data)
+      .post('https://book-store-snzt.onrender.combooks', data)
       .then(() => {
         setIsLoading(false);
-        enqueueSnackbar('Book created successfully!', {variant: 'success'});
+        enqueueSnackbar('Book created successfully!', { variant: 'success' });
         navigate('/');
       })
       .catch((err) => {
         console.log(err.message);
-        enqueueSnackbar('Opps! An error occurred!', {variant: 'error'});
+        enqueueSnackbar('Opps! An error occurred!', { variant: 'error' });
         setIsLoading(false);
       });
   };
@@ -42,7 +42,7 @@ const CreateBook = () => {
       {isLoading ? (
         <Spinner />
       ) : (
-          <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
+        <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
           <div className="m-2 flex flex-col">
             <label className=' text-green-800 text-2xl font-semibold'>Title : </label>
             <input

@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get('http://localhost:9999/books')
+      .get('https://book-store-snzt.onrender.com/books')
       .then((response) => {
         setBooks(response.data.data);
         setIsLoading(false);
@@ -29,16 +29,16 @@ const Home = () => {
 
   return (
     <div className="p-4">
-        <div className="btns flex items-center justify-center gap-10">
-          <button 
-            className='p-2 text-white bg-slate-800 border-0 outline-none w-55 text-2xl rounded-md'
-            onClick={() => setShowType('table')}
-          >Table</button>
-          <button
-           className='p-2 text-white bg-slate-800 border-0 outline-none w-55 text-2xl rounded-md'
-           onClick={() => setShowType('card')}
-           >Card</button>
-        </div>
+      <div className="btns flex items-center justify-center gap-10">
+        <button
+          className='p-2 text-white bg-slate-800 border-0 outline-none w-55 text-2xl rounded-md'
+          onClick={() => setShowType('table')}
+        >Table</button>
+        <button
+          className='p-2 text-white bg-slate-800 border-0 outline-none w-55 text-2xl rounded-md'
+          onClick={() => setShowType('card')}
+        >Card</button>
+      </div>
       <div className="flex justify-between items-center">
         <h1 className="text-3xl my-8">Books List</h1>
         <Link to='/books/create'>
