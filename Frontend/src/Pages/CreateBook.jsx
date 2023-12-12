@@ -22,7 +22,7 @@ const CreateBook = () => {
     }
     setIsLoading(true);
     axios
-      .post('https://book-store-snzt.onrender.combooks', data)
+      .post('https://book-store-snzt.onrender.com/books', data)
       .then(() => {
         setIsLoading(false);
         enqueueSnackbar('Book created successfully!', { variant: 'success' });
