@@ -32,7 +32,6 @@ const EditBook = () => {
       })
       .catch((err) => {
         console.log(err.message);
-        enqueueSnackbar('Opps! An error occurred!', { variant: 'error' });
         setIsLoading(false);
       })
   }, []);
@@ -48,16 +47,18 @@ const EditBook = () => {
       .then(() => {
         setIsLoading(false);
         navigate('/');
-         enqueueSnackbar("Book edited successfully!", { variant: "success" });
+        enqueueSnackbar('Book edited successfully!', { variant: 'success' });
       })
       .catch((err) => {
         console.log(err.message);
         enqueueSnackbar("Opps! An error occurred!", { variant: "error" });
         setIsLoading(false);
+        enqueueSnackbar('Opps! An error occurred!', { variant: 'error' });
       });
   };
 
   return (
+
 		<div>
 			<BackButton />
 			<h1 className='text-red-950 m-8 text-2xl font-bold '>Edit book : </h1>
@@ -110,6 +111,6 @@ const EditBook = () => {
 			)}
 		</div>
 	);
-}
+
 
 export default EditBook
