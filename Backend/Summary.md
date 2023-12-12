@@ -45,3 +45,5 @@ Adding tailwind.config.js file :
 
 1. npm install -D tailwindcss
 2. npx tailwindcss init
+
+5. To run on mobile screens : npm run dev -- --host 
