@@ -111,6 +111,6 @@ const EditBook = () => {
 			)}
 		</div>
 	);
-
+			}
 
 export default EditBook
