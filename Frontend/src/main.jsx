@@ -11,7 +11,6 @@ if(process.env.NODE_ENV==='production') {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-
   <BrowserRouter >
     <SnackbarProvider>
       <App />

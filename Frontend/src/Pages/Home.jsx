@@ -27,6 +27,18 @@ const Home = () => {
       });
   }, []);
 
+  //Better alternative
+  /*
+  useEffect (()=>{
+    const fetchBook =  async() => {
+      const response = await axios.get('https://book-store-snzt.onrender.com/books');
+      setBooks(response.data.data);
+      setIsLoading(false);
+    }
+    fetchBook()
+  })
+  */
+
   return (
     <div className="p-4">
       <div className="btns flex items-center justify-center gap-10">
