@@ -8,56 +8,54 @@ import { useSnackbar } from 'notistack'
 
 const EditBook = () => {
 
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [publishYear, setPublishYear] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+	const [title, setTitle] = useState('');
+	const [author, setAuthor] = useState('');
+	const [publishYear, setPublishYear] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 
-  const { enqueueSnackbar } = useSnackbar();
+	const { enqueueSnackbar } = useSnackbar();
 
-  const { id } = useParams();
+	const { id } = useParams();
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  //Get book of specified ID
-  useEffect(() => {
-    setIsLoading(true);
-    axios.
-      get(`https://book-store-snzt.onrender.com/books/${id}`)
-      .then((response) => {
-        setTitle(response.data.title);
-        setAuthor(response.data.author);
-        setPublishYear(response.data.publishYear);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        setIsLoading(false);
-      })
-  }, []);
+	//Get book of specified ID
+	useEffect(() => {
+		setIsLoading(true);
+		axios.
+			get(`https://book-store-snzt.onrender.com/books/${id}`)
+			.then((response) => {
+				setTitle(response.data.title);
+				setAuthor(response.data.author);
+				setPublishYear(response.data.publishYear);
+				setIsLoading(false);
+			})
+			.catch((err) => {
+				console.log(err.message);
+				setIsLoading(false);
+			})
+	}, []);
 
-  //Post book of specified edits in ID
-  const handleEdit = () => {
-    const data = {
-      title, author, publishYear
-    }
-    setIsLoading(true);
-    axios
-      .put(`https://book-store-snzt.onrender.com/books/${id}`, data)
-      .then(() => {
-        setIsLoading(false);
-        navigate('/');
-        enqueueSnackbar('Book edited successfully!', { variant: 'success' });
-      })
-      .catch((err) => {
-        console.log(err.message);
-        enqueueSnackbar("Opps! An error occurred!", { variant: "error" });
-        setIsLoading(false);
-        enqueueSnackbar('Opps! An error occurred!', { variant: 'error' });
-      });
-  };
+	//Post book of specified edits in ID
+	const handleEdit = () => {
+		const data = { title, author, publishYear };
+		setIsLoading(true);
+		axios
+			.put(`https://book-store-snzt.onrender.com/books/${id}`, data)
+			.then(() => {
+				setIsLoading(false);
+				navigate('/');
+				enqueueSnackbar('Book edited successfully!', { variant: 'success' });
+			})
+			.catch((err) => {
+				console.log(err.message);
+				enqueueSnackbar("Opps! An error occurred!", { variant: "error" });
+				setIsLoading(false);
+				enqueueSnackbar('Opps! An error occurred!', { variant: 'error' });
+			});
+	};
 
-  return (
+	return (
 
 		<div>
 			<BackButton />
@@ -111,6 +109,6 @@ const EditBook = () => {
 			)}
 		</div>
 	);
-			}
+}
 
 export default EditBook

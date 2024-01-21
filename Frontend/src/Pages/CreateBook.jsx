@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Spinner from '../Components/Spinner.jsx'
@@ -7,35 +7,43 @@ import { useSnackbar } from 'notistack'
 
 const CreateBook = () => {
 
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [publishYear, setPublishYear] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+	const [title, setTitle] = useState('');
+	const [author, setAuthor] = useState('');
+	const [publishYear, setPublishYear] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 
-  const { enqueueSnackbar } = useSnackbar();
+	const { enqueueSnackbar } = useSnackbar();
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    const data = {
-      title, author, publishYear
-    }
-    setIsLoading(true);
-    axios
-      .post('https://book-store-snzt.onrender.com/books', data)
-      .then(() => {
-        setIsLoading(false);
-        enqueueSnackbar('Book created successfully!', { variant: 'success' });
-        navigate('/');
-      })
-      .catch((err) => {
-        console.log(err.message);
-        enqueueSnackbar('Opps! An error occurred!', { variant: 'error' });
-        setIsLoading(false);
-      });
-  };
+	const handleSubmit = () => {
+		const data = { title, author, publishYear };
+		setIsLoading(true);
+		axios
+			.post('https://book-store-snzt.onrender.com/books', data)
+			.then(() => {
+				setIsLoading(false);
+				enqueueSnackbar('Book created successfully!', { variant: 'success' });
+				navigate('/');
+			})
+			.catch((err) => {
+				console.log(err.message);
+				enqueueSnackbar('Oops! An error occurred!', { variant: 'error' });
+				setIsLoading(false);
+			});
+	};
 
-  return (
+	//Better Alternative
+	/*
+		const data = {title, author, publishYear};
+		const handleSubmit = async() => {
+			const response = await axios.post('Link', data);
+			setIsLoading(false);
+			navigate('/');
+		}
+	*/
+
+	return (
 		<div>
 			<BackButton />
 			<h1 className='text-red-950 m-8 text-2xl font-bold '>Create book : </h1>
