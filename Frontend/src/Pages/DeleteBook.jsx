@@ -37,11 +37,11 @@ const DeleteBook = () => {
           <Spinner />
         ) :
         (
-          <div className="w-[45%] flex items-center justify-center m-auto flex-col p-25">
-            <h2 className="text-3xl text-green-800 p-10">
+          <div className="max-w-[650px] flex items-center justify-center m-auto flex-col p-5 gap-6">
+            <h2 className="text-[25px] text-green-800 text-center mt-10">
               Are you sure you want to delete this book?
             </h2>
-            <button className=" text-1xl-white bg-red-100 outline-none border-0 p-4 mb-10 font-bold rounded-xl w-[90%]" onClick={handleDelete}>
+            <button className=" text-xl-white bg-red-100 hover:bg-red-200 transition-all outline-none border-2 border-red-700 px-10 py-4 mx-2 mb-10 font-bold rounded-xl" onClick={handleDelete}>
               Yes, Delete it!
             </button>
           </div>
